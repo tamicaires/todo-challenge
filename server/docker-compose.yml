@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_USER=default
+      - DB_PASSWORD=V6xOfiQlks3W
+      - DB_NAME=verceldb
+      - DB_HOST=ep-broad-wave-a42hyfqt.us-east-1.aws.neon.tech
+      - DB_PORT=5432
+      - JWT_SECRET=JSFHSLAF644F52S45F7567SFAS757SA
+    volumes:
+      - ./server:/app-server
+    container_name: todo-server
+    restart: always
