@@ -1,14 +1,14 @@
 import { Model, DataTypes } from "sequelize";
 import db from "."; 
 
-class User extends Model {
-  public id!: string;
-  public email!: string;
-  public name!: string;
-  public password!: string;
+class UserModel extends Model {
+  declare id: string;
+  declare email: string;
+  declare name: string;
+  declare password: string;
 }
 
-User.init(
+UserModel.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -31,9 +31,11 @@ User.init(
   },
   {
     sequelize: db,
-    modelName: "User", 
-    tableName: "users", 
+    modelName: "User",
+    tableName: "user",
+    underscored: true,
+    timestamps: true
   }
 );
 
-export default User;
+export default UserModel;

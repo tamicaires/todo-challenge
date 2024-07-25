@@ -17,26 +17,30 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      isDone: {
+      is_done: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
       },
-      expectedDate: {
+      expected_date: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
-      createdBy: {
+      completed_at: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      created_by: {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      createdAt: {
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),

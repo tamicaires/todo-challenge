@@ -9,8 +9,8 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
       },
-      userId: {
-        type: Sequelize.UUID, 
+      user_id: {
+        type: Sequelize.UUID,
         references: {
           model: "user",
           key: "id",
@@ -18,12 +18,14 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      taskId: {
+      task_id: {
         type: Sequelize.UUID,
         references: {
           model: "task",
           key: "id",
         },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
     });
   },

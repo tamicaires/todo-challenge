@@ -1,19 +1,20 @@
 import { Model, DataTypes } from "sequelize";
 import db from ".";
 
-class Task extends Model {
-  public id!: string;
-  public title!: string;
-  public description?: string;
-  public isDone!: boolean;
-  public expectedDate!: Date;
-  public users!: string[]; 
-  public createdBy?: string;
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+class TaskModel extends Model {
+  declare id: string;
+  declare title: string;
+  declare description?: string;
+  declare isDone: boolean;
+  declare expectedDate: Date;
+  declare users: string[];
+  declare createdBy?: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
+  declare completedAt?: Date;
 }
 
-Task.init(
+TaskModel.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -38,32 +39,22 @@ Task.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    users: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
-      defaultValue: [],
-    },
     createdBy: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    createdAt: {
+    completedAt: {
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+      allowNull: true,
     },
   },
   {
     sequelize: db,
-    modelName: "Task", 
-    tableName: "tasks", 
-    timestamps: false
+    modelName: "Task",
+    tableName: "task",
+    timestamps: true,
+    underscored: true
   }
 );
 
-export default Task;
+export default TaskModel;

@@ -2,10 +2,10 @@ import { Model, DataTypes } from "sequelize";
 import db from "."; 
 
 class Project extends Model {
-  public id!: string;
-  public title!: string;
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  declare id: string;
+  declare title: string;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 Project.init(

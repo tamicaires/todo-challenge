@@ -1,14 +1,15 @@
+// models/UserTask.ts
 import { Model, DataTypes } from "sequelize";
 import db from ".";
 import User from "./User";
 import Task from "./Task";
 
 class UserTask extends Model {
-  public id!: string;
-  public userId!: string;
-  public taskId!: string;
-  public createdAt!: Date;
-  public updatedAt!: Date;
+  declare id: string;
+  declare user_id: string;
+  declare task_id: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
 }
 
 UserTask.init(
@@ -18,23 +19,13 @@ UserTask.init(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    userId: {
+    user_id: {
       type: DataTypes.UUID,
       allowNull: false,
     },
-    taskId: {
+    task_id: {
       type: DataTypes.UUID,
       allowNull: false,
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
   },
   {
@@ -42,19 +33,20 @@ UserTask.init(
     modelName: "UserTask",
     tableName: "user_task",
     underscored: true,
+    timestamps: false
   }
 );
 
 User.belongsToMany(Task, {
-  foreignKey: "userId",
-  otherKey: "taskId",
+  foreignKey: "user_id",
+  otherKey: "task_id",
   as: "tasks",
   through: UserTask,
 });
 
 Task.belongsToMany(User, {
-  foreignKey: "taskId",
-  otherKey: "userId",
+  foreignKey: "task_id",
+  otherKey: "user_id",
   as: "users",
   through: UserTask,
 });

@@ -4,11 +4,11 @@ import Project from "./Project";
 import Task from "./Task";
 
 class ProjectTask extends Model {
-  public id!: string;
-  public projectId!: string;
-  public taskId!: string;
-  public createdAt!: Date;
-  public updatedAt!: Date;
+  declare id: string;
+  declare projectId: string;
+  declare taskId: string;
+  declare createdAt: Date;
+  declare updatedAt: Date;
 }
 
 ProjectTask.init(
