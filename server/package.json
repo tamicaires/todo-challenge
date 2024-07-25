@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "src/http/server.ts",
   "scripts": {
-    "dev": "tsnd src/http/server"
+    "dev": "tsnd src/http/server",
+    "build": "tsc",
+    "vercel-build": "npm run build"
   },
   "keywords": [],
   "author": "",
