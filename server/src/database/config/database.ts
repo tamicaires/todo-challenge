@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { Options } from "sequelize";
+import pg from 'pg';
 
 const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_PORT } = process.env;
 
@@ -10,6 +11,7 @@ const config: Options = {
   host: DB_HOST,
   port: Number(DB_PORT) || 5432,
   dialect: "postgres",
+  dialectModule: pg,
   dialectOptions: {
     ssl: {
       require: true,

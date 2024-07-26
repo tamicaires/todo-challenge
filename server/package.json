@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "tsnd src/http/server",
     "build": "tsc",
-    "migrate": "sequelize db:migrate",
-    "vercel-build": "npm run build && npm run migrate"
+    "migrate": "sequelize db:migrate --config build/database/config/database.js",
+    "migrate-prod": "sequelize db:migrate --config build/database/config/database.js --env production",
+    "vercel-build": "npm run build && npm run migrate-prod"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.14.10",
+    "@types/pg": "^8.11.6",
     "sequelize-cli": "^6.6.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.3"
