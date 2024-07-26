@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "tsnd src/http/server",
     "build": "tsc",
-    "vercel-build": "npm run build"
+    "migrate": "sequelize db:migrate",
+    "vercel-build": "npm run build && npm run migrate"
   },
   "keywords": [],
   "author": "",
