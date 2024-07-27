@@ -17,16 +17,34 @@ export class SequelizeTaskRepository implements TaskRepository {
     return response;
   }
 
-  async findTaskByUserId(userId: string, taskId: string): Promise<Task | null> {
-    return await this.model.findOne({ where: { user_id: userId, id: taskId } });
+  async findById(taskId: string): Promise<Task | null> {
+    // Encontrar a tarefa pelo ID
+    return await this.model.findByPk(taskId, {
+      include: [
+        {
+          model: UserModel,
+          as: "users",
+          attributes: ["id", "name", "email"],
+        },
+      ],
+    });
   }
 
   async update(
     userId: string,
     taskId: string,
     task: UpdateTaskDTO
-  ): Promise<void> {
-    throw new Error("Method not implemented.");
+  ): Promise<Task> {
+    const [updateCount, [updatedTask]] = await this.model.update(task, {
+      where: { id: taskId },
+      returning: true,
+    });
+
+    if (updateCount === 0) {
+      throw new Error(`Task with id ${taskId} not found or not updated.`);
+    }
+
+    return updatedTask;
   }
 
   async delete(taskId: string): Promise<void> {
@@ -39,18 +57,6 @@ export class SequelizeTaskRepository implements TaskRepository {
     }
   }
 
-  async findById(taskId: string): Promise<Task | null> {
-    return await this.model.findByPk(taskId, {
-      include: [
-        {
-          model: UserModel,
-          as: "users",
-          attributes: ["id", "name", "email"],
-        },
-      ],
-    });
-  }
-  
   async getAll(): Promise<Task[]> {
     return await this.model.findAll({
       include: [

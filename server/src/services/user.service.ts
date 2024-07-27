@@ -32,4 +32,12 @@ export class UserService {
     const users = await this.userRepository.getAll();
     return resp(200, users);
   }
+
+  async getMe(userId: string) {
+    const user = await this.userRepository.get(userId);
+    if (!user) {
+      throw Error("User not found");
+    }
+    return resp(200, user);
+  }
 }

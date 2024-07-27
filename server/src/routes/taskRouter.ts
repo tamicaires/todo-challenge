@@ -22,12 +22,20 @@ taskRouter.post("/tasks", AuthMiddleware,
   taskController.create.bind(taskController)
 );
 
-taskRouter.get("/tasks", taskController.getAll.bind(taskController));
+taskRouter.get(
+  "/tasks",
+  AuthMiddleware, taskController.getAll.bind(taskController)
+);
 taskRouter.get("/tasks/assignments", AuthMiddleware,
   taskController.getAllAssignments.bind(taskController)
 );
 
-taskRouter.delete("/tasks/:taskId",
+taskRouter.delete("/tasks/:taskId", AuthMiddleware,
   taskController.delete.bind(taskController)
+);
+
+taskRouter.put(
+  "/tasks/:taskId",
+  AuthMiddleware, taskController.update.bind(taskController)
 );
 export default taskRouter;

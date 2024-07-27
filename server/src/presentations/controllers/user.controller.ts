@@ -25,4 +25,14 @@ export class UserController {
       next(error);
     }
   }
+
+  async getMe(req: Request, res: Response, next: NextFunction) {
+    try {
+      const userId = req.userId;
+      const response = await this.userService.getMe(userId);
+      res.status(200).json(response);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

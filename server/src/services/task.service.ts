@@ -52,15 +52,12 @@ export class TaskService {
 
   async update(userId: string, taskId: string, data: UpdateTaskDTO) {
     const user = await this.userRepository.get(userId);
-
+    console.log("user no service", user);
     if (!user) {
       throw new Error("User not found.");
     }
 
-    const existingTask = await this.taskRepository.findTaskByUserId(
-      user.id as string,
-      taskId
-    );
+    const existingTask = await this.taskRepository.findById(taskId);
 
     if (!existingTask) {
       throw new Error("Task not found.");
@@ -83,23 +80,23 @@ export class TaskService {
   }
 
   async deleteTask(userId: string, taskId: string) {
-    // const user = await this.userRepository.get(userId);
-    // if (!user) {
-    //   throw new Error("User not found.");
-    // }
+    const user = await this.userRepository.get(userId);
+    if (!user) {
+      throw new Error("User not found.");
+    }
 
     const task = await this.taskRepository.findById(taskId);
     if (!task) {
       throw new Error("Task not found.");
     }
 
-    // if (task.createdBy === userId) {
+    if (task.createdBy === userId) {
       return await this.taskRepository.delete(taskId);
-    // }
+    }
 
-    throw new Error("You're not allowed to delete this task!")
+    throw new Error("You're not allowed to delete this task!");
   }
-  
+
   async getAll() {
     return await this.taskRepository.getAll();
   }

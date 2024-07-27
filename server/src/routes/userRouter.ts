@@ -13,8 +13,9 @@ const authControl = new AuthController();
 
 const userRouter = Router();
 
-userRouter.get("/users", AuthMiddleware, userController.getAll.bind(userController));
-userRouter.post("/users", userController.create.bind(userController));
 userRouter.post("/auth/login", authControl.authenticate.bind(authControl));
+userRouter.post("/users", userController.create.bind(userController));
+userRouter.get("/users", AuthMiddleware, userController.getAll.bind(userController));
+userRouter.get("/me", AuthMiddleware, userController.getMe.bind(userController));
 
 export default userRouter;

@@ -22,7 +22,7 @@ export class TaskController {
     try {
       const { taskId } = req.params;
       await this.taskService.deleteTask(req.userId, taskId);
-      res.status(204).send(); // Status 204 No Content indica sucesso na exclusão
+      res.status(204).send();
     } catch (error) {
       next(error);
     }
@@ -43,6 +43,22 @@ export class TaskController {
       res.status(200).json(response);
     } catch (error) {
       console.log(error);
+      next(error);
+    }
+  }
+
+  async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { taskId } = req.params;
+      console.log('user  no controle', req.userId)
+      const updatedTaskData = req.body; 
+      const response = await this.taskService.update(
+        req.userId,
+        taskId,  
+        updatedTaskData
+      );
+      res.status(200).json(response);
+    } catch (error) {
       next(error);
     }
   }

@@ -6,8 +6,8 @@ import UserModel from "../models/User";
 export class SequelizeUserRepository implements UserRepository {
   private model: ModelStatic<UserModel> = UserModel;
 
-  async create(user: User): Promise<void> {
-    await this.model.create({...user});
+  async create(user: User): Promise<User> {
+    return await this.model.create({...user});
   }
 
   async findByEmail(email: string): Promise<User | null> {

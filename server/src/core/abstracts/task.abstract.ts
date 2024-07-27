@@ -7,12 +7,8 @@ export abstract class TaskRepository {
     userId: string,
     taskId: string,
     task: UpdateTaskDTO
-  ): Promise<void>;
+  ): Promise<Task>;
   abstract delete(taskId: string): Promise<void>;
   abstract findById(taskId: string): Promise<Task | null>;
-  abstract findTaskByUserId(
-    userId: string,
-    taskId: string
-  ): Promise<Task | null>;
   abstract getAll(): Promise<Task[]>;
 }
