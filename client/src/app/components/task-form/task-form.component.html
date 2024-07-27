@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+  <div class="mb-3">
+    <label for="taskTitle" class="form-label">Título</label>
+    <input type="text" class="form-control" id="taskTitle" [(ngModel)]="newTask.title" name="title" required>
+  </div>
+  <div class="mb-3">
+    <label for="taskDescription" class="form-label">Descrição</label>
+    <textarea class="form-control" id="taskDescription" [(ngModel)]="newTask.description" name="description"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="taskDate" class="form-label">Data Esperada</label>
+    <input type="date" class="form-control" id="taskDate" [(ngModel)]="newTask.expectedDate" name="expectedDate" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Criar Tarefa</button>
+</form>
