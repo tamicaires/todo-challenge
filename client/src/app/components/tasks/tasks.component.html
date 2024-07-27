@@ -1,0 +1,47 @@
+<div class="tasks-container">
+  <div class="add-task" (click)="openModal()">
+    <i class="bi bi-plus-lg"></i>
+    <span>Nova Tarefa</span>
+  </div>
+
+  <div class="">
+    <div *ngFor="let group of filteredTasks | objectKeys">
+      <div class="task-wrapper">
+        <div class="group-container">
+          <div>
+            <h3>{{ group }}</h3>
+          </div>
+          <i
+            *ngIf="!expandedGroups[group]"
+            class="bi bi-chevron-right arrow-icon"
+            (click)="toggleGroup(group)"
+          ></i>
+          <i
+            *ngIf="expandedGroups[group]"
+            class="bi bi-chevron-down"
+            (click)="toggleGroup(group)"
+          ></i>
+        </div>
+      </div>
+      <div *ngIf="expandedGroups[group]" class="task-item">
+        <div *ngFor="let task of filteredTasks[group]">
+          <app-task-card 
+            [task]="task"
+            (taskUpdated)="onTaskUpdated($event)"
+            (taskDeleted)="onTaskDeleted($event)">
+          </app-task-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Modal -->
+  <app-task-modal
+    [isVisible]="showModal"
+    [task]="editingTask"
+    [isEditing]="isEditing"
+    (close)="closeModal()"
+    (taskCreated)="createTask($event)"
+    (taskUpdated)="editTask($event)">
+  </app-task-modal>
+</div>

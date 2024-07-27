@@ -1,0 +1,61 @@
+<div class="container-div" *ngIf="task">
+  <div class="flex">
+    <div>
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+        [checked]="task.isDone"
+        (change)="onToggle(task)"
+      />
+    </div>
+    <div>
+      <h3 *ngIf="!isEditingTitle" (dblclick)="startEditingTitle()">
+        {{ task.title }}
+      </h3>
+      <div *ngIf="isEditingTitle" class="editing-container">
+        <input
+          class="input-field"
+          [value]="task.title"
+          (blur)="finishEditingTitle($event)"
+          (keydown.enter)="finishEditingTitle($event)"
+          autofocus
+        />
+        <span class="editing-indicator">Modo Edição</span>
+      </div>
+    </div>
+  </div>
+  <div class="container-div">
+    <div class="avatar-stack">
+      <span class="avatar">+2</span>
+      <span class="avatar">M</span>
+      <span class="avatar">M</span>
+    </div>
+    <div
+      class="tag"
+      [ngClass]="{ 'tag-pendente': !task.isDone, 'tag-concluida': task.isDone }"
+    >
+      {{ task.isDone ? "Concluída" : "Pendente" }}
+    </div>
+    <div class="expected-date">{{ task.expectedDate | date }}</div>
+    <!-- Action Icons -->
+    <div class="action-icons">
+      <i
+        class="bi bi-pencil-square"
+        (click)="startEditingTitle()"
+        title="Editar Tarefa"
+      ></i>
+      <i
+        class="bi bi-person-plus"
+        (click)="onAddResponsible(task)"
+        title="Adicionar Responsável"
+      ></i>
+      <i
+        class="bi bi-trash text-danger"
+        (click)="onDeleteTask(task)"
+        title="Excluir Tarefa"
+      ></i>
+    </div>
+  </div>
+</div>

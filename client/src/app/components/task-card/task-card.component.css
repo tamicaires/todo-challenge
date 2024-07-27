@@ -1,0 +1,163 @@
+.tag {
+  font-size: 12px;
+  padding-inline: 10px;
+  padding-block: 5px;
+  border-radius: 5px;
+}
+
+.tag-pendente {
+  color: #d3c503;
+  background-color: #dad72d31;
+}
+
+.tag-concluida {
+  color: #2f85e7;
+  background-color: #1953965e; /* azul */
+}
+
+/* Resto do seu CSS */
+.container-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 2px;
+  padding-inline: 15px;
+  border-radius: 8px;
+  gap: 40px;
+  background-color: #262626;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  color: #c4c4c4;
+}
+
+.form-check-input {
+  margin: 0;
+  vertical-align: middle;
+  border: 1px solid rgb(80, 80, 80);
+  background-color: rgb(65, 65, 65);
+}
+
+.avatar {
+  border: 3px solid #aee41cf3;
+  color: #4e6902f3;
+  background-color: #c9ff33f3;
+}
+
+.more-icon {
+  cursor: pointer;
+  color: gray;
+  font-size: 1.5rem;
+}
+
+.dropdown-menu {
+  border: none;
+  min-width: 150px;
+  color: #eeeeee;
+  background-color: #1C1C1C;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  color: #c4c4c4;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  background-color: #242424;
+}
+
+.dropdown-item.text-danger {
+  border-top: 1px solid #242424;
+  padding: 10px;
+  color: #dc3545;
+}
+
+.expected-date {
+  color: #777777;
+  font-size: 12px;
+}
+
+.action-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.action-icons i {
+  cursor: pointer;
+  color: #7a7a7a;
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
+.action-icons i:hover {
+  color: #c9ff33f3;
+}
+
+.action-icons i.text-danger:hover {
+  color: #e65b69;
+}
+
+input[type="text"] {
+  font-size: 1.2rem;
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid #971a1a;
+  border-radius: 4px;
+  width: 100%;
+}
+
+input[type="text"].focused {
+  animation: none;
+  color: white;
+}
+
+.input-field {
+  color: #eeeeee;
+  border: yellow;
+  text-decoration-color: red;
+  border: none;
+  background-color: #262626;
+  outline: none;
+}
+@keyframes blink {
+  from, to {
+    border-color: #e62020;
+  }
+  50% {
+    border-color: #007bff;
+  }
+}
+
+.input-field:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.editing-container {
+  position: relative;
+}
+
+.editing-indicator {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 0.8rem;
+  color: #007bff;
+  padding-inline: 10px;
+  background-color: #0d437c33;
+}
