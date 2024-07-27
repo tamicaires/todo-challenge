@@ -1,27 +1,38 @@
-# Client
+# Todo Challenge Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+Este é o frontend para o projeto Todo Challenge, desenvolvido com Angular 18. O frontend interage com o backend para fornecer uma interface de usuário para autenticação, criação e gerenciamento de tarefas, e designação de usuários a tarefas.
 
-## Development server
+## Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular 18**: Framework para construção da interface de usuário.
+- **Angular Standalone Components**: Utilizados para criar componentes independentes.
+- **JWT**: Para autorização e controle de acesso.
+- **Angular Router**: Para controle de navegação e rotas.
+- **TypeScript**: Para adicionar tipagem estática ao JavaScript.
 
-## Code scaffolding
+## Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Autenticação e Login**: Usuários podem se registrar e fazer login utilizando JWT.
+- **Criação de Tarefas**: Usuários podem criar novas tarefas.
+- **Gerenciamento de Tarefas**: Usuários podem visualizar, atualizar e excluir tarefas.
+- **Designação de Usuários a Tarefas**: Associar usuários a tarefas específicas.
+- **Controle de Rotas**: Navegação entre diferentes páginas, com proteção de rotas baseado em autorização JWT.
 
-## Build
+## Instalação e Execução
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone o repositório:
 
-## Running unit tests
+   ```bash
+   git clone https://github.com/seu-usuario/todo-challenge-frontend.git
+   cd client
+   ```
+2. Instale as dependencias
+   ```bash
+   npm install
+   
+3. Inicie o servidor
+   ```bash
+   npm start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  ### Funcionalidades de Autorização
+O controle de acesso é feito usando JWT. As rotas são protegidas e o acesso a certas páginas é restrito a usuários autenticados. O token JWT é armazenado no localStorage e enviado em cada requisição para o backend.
