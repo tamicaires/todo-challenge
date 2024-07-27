@@ -14,6 +14,10 @@
   margin-bottom: 15px;
 }
 
+a {
+  color: #9ecc20f3;
+}
+
 .login-container label {
   display: block;
   margin-bottom: 5px;

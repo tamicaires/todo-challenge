@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://todo-challenges.vercel.app',
+  apiUrl:
+    'http://localhost:3001',
 };

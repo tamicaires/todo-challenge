@@ -130,8 +130,8 @@ input[type="text"].focused {
   color: #eeeeee;
   border: yellow;
   text-decoration-color: red;
-  border: none;
   background-color: #262626;
+  border: none;
   outline: none;
 }
 @keyframes blink {

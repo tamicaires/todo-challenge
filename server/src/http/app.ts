@@ -37,7 +37,7 @@ const swaggerDefinition = {
 
 const swaggerOptions = {
   definition: swaggerDefinition,
-  apis: ["./src/routes/*.ts"], // Ajuste o caminho conforme necessário
+  apis: ["./src/routes/*.ts"], 
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);

@@ -27,17 +27,6 @@
   margin-bottom: 5px;
 }
 
-.register-container a {
-  text-align: center;
-  color: rgb(201, 201, 201);
-  font-size: 12px;
-
-  &:hover {
-    color: #9ecc20f3
-    
-  }
-}
-
 .register-container input {
   width: 100%;
   padding: 8px;
