@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <ul class="sidebar-menu">
+    <li class="sidebar-item" *ngFor="let item of menuItems">
+      <a (click)="onMenuItemClick(item.value)">
+        <i [class]="item.icon"></i> {{ item.label }}
+      </a>
+    </li>
+  </ul>
+  <div>
+    <button (click)="logout()">Sair</button>
+  </div>
+</div>

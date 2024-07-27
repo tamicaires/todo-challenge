@@ -1,0 +1,29 @@
+h1 {
+  color: #eeeeee;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+h3 {
+  color: #b8b8b8;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  font-size: 14px;
+  padding-inline: 10px;
+  padding-block: 5px;
+  border-radius: 15px;
+  background-color: #CAFF33;
+}
+
+button:hover {
+  background-color: #b1e622;
+}
