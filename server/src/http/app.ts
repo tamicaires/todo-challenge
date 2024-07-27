@@ -5,9 +5,9 @@ import router from "../routes";
 const app = express();
 
 const corsOptions = {
-  origin: "https://todo-challenge-front.netlify.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type, Authorization",
+  origin: "*", 
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 };
 
