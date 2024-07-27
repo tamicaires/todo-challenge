@@ -1,0 +1,99 @@
+.register-container {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #eeeeee;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-container div {
+  margin-bottom: 15px;
+}
+
+.register-container label {
+  color: #eeeeee;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.register-container a {
+  text-align: center;
+  color: rgb(201, 201, 201);
+  font-size: 12px;
+
+  &:hover {
+    color: #9ecc20f3
+    
+  }
+}
+
+.create-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.register-container input {
+  width: 100%;
+  padding: 8px;
+  color: #eeeeee;
+  border: 1.5px solid #464646;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.register-container button {
+  background-color: #9ecc20f3;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.register-container p {
+  margin-top: -20px;
+  text-align: center;
+  color: #929292;
+}
+
+.register-container .spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+input[type="text"].focused {
+  animation: none;
+  color: white;
+}
