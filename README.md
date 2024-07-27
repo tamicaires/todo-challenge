@@ -1,6 +1,16 @@
 # Todo Challenge
 
+
+![Login](https://i.ibb.co/LRHVkxg/Captura-de-tela-2024-07-27-191431.png)
+![Register](https://i.ibb.co/0f5x2fJ/Captura-de-tela-2024-07-27-191617.png)
+![Tasks view](https://i.ibb.co/GPVFhCd/Captura-de-tela-2024-07-27-191751.png)
+
 Este é um projeto completo de gerenciamento de tarefas que inclui tanto o frontend quanto o backend. O backend é construído com Express, Sequelize e PostgreSQL, enquanto o frontend é desenvolvido com Angular 18. O projeto oferece funcionalidades completas para autenticação, criação e gerenciamento de tarefas, e designação de usuários a tarefas.
+
+
+Demonstração do projeto:
+
+[Clique aqui e assista a demonstração do projeto](https://vimeo.com/991062607?share=copy)
 
 ## Estrutura do Projeto
 
